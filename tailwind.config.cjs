@@ -16,6 +16,7 @@ module.exports = {
         'green-custom': "#00ff94",
         'another-green-custom': "#23e299",
         'red-custom':"#f44b4d",
+        'lemon-custom': "#ceff1b",
       }
     },
   },

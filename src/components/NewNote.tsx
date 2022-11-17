@@ -9,7 +9,7 @@ type NewNoteProps = {
 
 const NewNote = ({ onSubmit, onAddTag, availableTags }: NewNoteProps) => {
   return (
-    <main className="p-8">
+    <main className=" pt-10 max-w-[1180px] mx-auto">
       <h1 className="pb-6 font-bold text-3xl">New📝</h1>
       <FormNote
         onSubmit={onSubmit}

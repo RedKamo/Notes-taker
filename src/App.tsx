@@ -76,7 +76,7 @@ function App() {
   };
 
   return (
-    <main className="bg-main-custom min-h-screen px-8">
+    <main className="bg-main-custom min-h-screen px-6">
       <Routes>
         <Route
           path="/"

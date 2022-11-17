@@ -38,11 +38,11 @@ const FormNote = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <section className="flex items-center justify-center gap-4 pb-4">
+      <section className="flex flex-col md:flex-row  w-full items-center justify-center gap-4 py-10">
         <input
           type="text"
           id=""
-          className="w-1/2 text-gray-900 text-sm rounded-lg   p-2 border"
+          className="w-full md:w-1/2 text-gray-900 text-sm rounded-lg   p-2 border-2 border-black"
           placeholder="Add note title"
           required
           ref={titleReference}
@@ -69,30 +69,30 @@ const FormNote = ({
             );
           }}
           isMulti
-          className="w-1/2"
+          className="w-full md:w-1/2 border-2 border-black text-sm rounded-lg"
         />
       </section>
       <textarea
         rows={10}
-        className="block p-2.5 w-full text-sm text-gray-900 rounded-lg border mt-4"
+        className="block  w-full text-sm text-gray-900 rounded-lg border mt-4 border-black border-b-4 border-r-4 p-4 bg-slate-100"
         placeholder="Write your thoughts here..."
         ref={markdownReference}
         required
         defaultValue={markdown}
       />
-      <section className="pt-4 flex justify-end ">
-        <button
-          type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        >
-          Save
+      <section className="pt-10 flex justify-end gap-4 ">
+        <button type="submit" className="relative text-sm h-10 w-20 2 group ">
+          <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
+          <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-lemon-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+            Save
+          </span>
         </button>
         <Link to="..">
-          <button
-            type="button"
-            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-          >
-            Cancel
+          <button type="button" className="relative text-sm h-10 w-20 2 group ">
+            <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
+            <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-orange-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+              Cancel
+            </span>
           </button>
         </Link>
       </section>

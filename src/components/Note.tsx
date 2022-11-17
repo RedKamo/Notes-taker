@@ -13,12 +13,12 @@ const Note = ({ deletedNote }: NoteProps) => {
   return (
     <main className=" min-h-screen max-w-[1180px] mx-auto pt-10">
       <h1 className="text-3xl md:text-5xl font-bold py-8">{note.title}</h1>
-      <section className="flex gap-4">
-        <section className=" w-5/6  ">
+      <section className="flex flex-col md:flex-row  gap-4 ">
+        <section className="w-full md:w-5/6  ">
           <section className="flex gap-4 pb-4">
             <Link to="edit">
               <button className="relative text-sm h-10 w-20 2 group ">
-                <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
+                <span className="absolute inset-0 rounded-lg  bg-black group-hover:bg-black"></span>
                 <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-another-green-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
                   Edit
                 </span>
@@ -41,7 +41,7 @@ const Note = ({ deletedNote }: NoteProps) => {
             <Link to="..">
               <button className="relative text-sm h-10 w-20 2 group ">
                 <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
-                <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-another-yellow-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+                <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-purple-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
                   Back
                 </span>
               </button>
@@ -54,7 +54,7 @@ const Note = ({ deletedNote }: NoteProps) => {
           </section>
         </section>
 
-        <section className="w-2/6 rounded-lg flex-col flex ">
+        <section className="w-full md:w-2/6  rounded-lg flex-col flex ">
           <h3 className="pb-6 text-2xl ">Tags</h3>
           {note.tags.length > 0 && (
             <section className=" flex flex-wrap gap-2 items-center justify-center border border-r-4 border-b-4 border-black rounded-lg py-6 bg-yellow-custom ">
