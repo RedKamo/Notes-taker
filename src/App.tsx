@@ -76,36 +76,38 @@ function App() {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={<NoteList availableTags={tags} notes={notesTags} />}
-      />
-      <Route
-        path="/new"
-        element={
-          <NewNote
-            onSubmit={createNote}
-            onAddTag={addTag}
-            availableTags={tags}
-          />
-        }
-      />
-      <Route path="/:id" element={<NoteLayout notes={notesTags} />}>
-        <Route index element={<Note deletedNote={deletedNote} />} />
+    <main className="bg-main-custom min-h-screen px-8">
+      <Routes>
         <Route
-          path="edit"
+          path="/"
+          element={<NoteList availableTags={tags} notes={notesTags} />}
+        />
+        <Route
+          path="/new"
           element={
-            <EditNote
-              onSubmit={onUpdateNote}
-              availableTags={tags}
+            <NewNote
+              onSubmit={createNote}
               onAddTag={addTag}
+              availableTags={tags}
             />
           }
         />
-      </Route>
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+        <Route path="/:id" element={<NoteLayout notes={notesTags} />}>
+          <Route index element={<Note deletedNote={deletedNote} />} />
+          <Route
+            path="edit"
+            element={
+              <EditNote
+                onSubmit={onUpdateNote}
+                availableTags={tags}
+                onAddTag={addTag}
+              />
+            }
+          />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </main>
   );
 }
 

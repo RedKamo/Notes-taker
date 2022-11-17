@@ -11,45 +11,64 @@ const Note = ({ deletedNote }: NoteProps) => {
   const navigate = useNavigate();
 
   return (
-    <main>
-      <h1>{note.title}</h1>
-      {note.tags.length > 0 && (
-        <section className="pt-4">
-          {note.tags.map((tag) => (
-            <span
-              key={tag.id}
-              className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"
+    <main className=" min-h-screen max-w-[1180px] mx-auto pt-10">
+      <h1 className="text-3xl md:text-5xl font-bold py-8">{note.title}</h1>
+      <section className="flex gap-4">
+        <section className=" w-5/6  ">
+          <section className="flex gap-4 pb-4">
+            <Link to="edit">
+              <button className="relative text-sm h-10 w-20 2 group ">
+                <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
+                <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-another-green-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+                  Edit
+                </span>
+              </button>
+            </Link>
+            <button
+              type="button"
+              onClick={() => {
+                deletedNote(note.id);
+                navigate("/");
+              }}
+              className="relative text-sm h-10 w-20 2 group "
             >
-              {tag.label}
-            </span>
-          ))}
+              <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
+              <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-red-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+                Delete
+              </span>
+            </button>
+
+            <Link to="..">
+              <button className="relative text-sm h-10 w-20 2 group ">
+                <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
+                <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-another-yellow-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+                  Back
+                </span>
+              </button>
+            </Link>
+          </section>
+          <section className="border border-r-4 border-b-4 border-black rounded-lg p-4 bg-slate-100">
+            <article className="prose">
+              <ReactMarkdown>{note.markdown}</ReactMarkdown>
+            </article>
+          </section>
         </section>
-      )}
-      <Link to="edit">
-        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-          Edit
-        </button>
-      </Link>
-      <button
-        type="button"
-        className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-        onClick={() => {
-          deletedNote(note.id);
-          navigate("/");
-        }}
-      >
-        Delete
-      </button>
-      <Link to="..">
-        <button
-          type="button"
-          className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-        >
-          Back
-        </button>
-      </Link>
-      <section className="prose">
-        <ReactMarkdown>{note.markdown}</ReactMarkdown>
+
+        <section className="w-2/6 rounded-lg flex-col flex ">
+          <h3 className="pb-6 text-2xl ">Tags</h3>
+          {note.tags.length > 0 && (
+            <section className=" flex flex-wrap gap-2 items-center justify-center border border-r-4 border-b-4 border-black rounded-lg py-6 bg-yellow-custom ">
+              {note.tags.map((tag) => (
+                <span
+                  key={tag.id}
+                  className=" bg-white border border-black  text-xs font-semibold mr-2 px-2.5 py-0.5 rounded  "
+                >
+                  {tag.label}
+                </span>
+              ))}
+            </section>
+          )}
+        </section>
       </section>
     </main>
   );
