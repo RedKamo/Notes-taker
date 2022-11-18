@@ -12,7 +12,7 @@ const EditNote = ({ onSubmit, onAddTag, availableTags }: EditNoteProps) => {
   const note = useNote();
 
   return (
-    <main className="p-8">
+    <main className=" max-w-[1180px] mx-auto pt-10">
       <h1 className="pb-6 font-bold text-3xl">Edit Note 📝</h1>
       <FormNote
         title={note.title}

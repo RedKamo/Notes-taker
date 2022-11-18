@@ -2,6 +2,7 @@ import { FormEvent, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CreatableReactSelect from "react-select/creatable";
 import { NoteData, Tag } from "../App";
+import { RiBookMarkLine, RiCloseCircleLine } from "react-icons/ri";
 import { v4 as uuidV4 } from "uuid";
 
 type FormNoteProps = {
@@ -83,16 +84,22 @@ const FormNote = ({
       <section className="pt-10 flex justify-end gap-4 ">
         <button type="submit" className="relative text-sm h-10 w-20 2 group ">
           <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
-          <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-lemon-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
-            Save
-          </span>
+          <article className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-lemon-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+            <p className="px-2 font-bold ">Save</p>
+            <span>
+              <RiBookMarkLine className="font-bold text-xl" />
+            </span>
+          </article>
         </button>
         <Link to="..">
-          <button type="button" className="relative text-sm h-10 w-20 2 group ">
+          <button type="button" className="relative text-sm h-10 w-24 2 group ">
             <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
-            <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-orange-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
-              Cancel
-            </span>
+            <article className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-orange-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+              <p className="px-2 font-bold ">Cancel</p>
+              <span>
+                <RiCloseCircleLine className="font-bold text-xl" />
+              </span>
+            </article>
           </button>
         </Link>
       </section>

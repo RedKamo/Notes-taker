@@ -1,5 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useNote } from "./NoteLayout";
+import {
+  RiDeleteBin2Line,
+  RiEditBoxLine,
+  RiArrowGoBackFill,
+} from "react-icons/ri";
 import ReactMarkdown from "react-markdown";
 
 type NoteProps = {
@@ -19,9 +24,12 @@ const Note = ({ deletedNote }: NoteProps) => {
             <Link to="edit">
               <button className="relative text-sm h-10 w-20 2 group ">
                 <span className="absolute inset-0 rounded-lg  bg-black group-hover:bg-black"></span>
-                <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-another-green-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
-                  Edit
-                </span>
+                <article className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-another-green-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+                  <p className="px-2 font-bold ">Edit </p>
+                  <span>
+                    <RiEditBoxLine className="font-bold text-xl" />
+                  </span>
+                </article>
               </button>
             </Link>
             <button
@@ -30,20 +38,26 @@ const Note = ({ deletedNote }: NoteProps) => {
                 deletedNote(note.id);
                 navigate("/");
               }}
-              className="relative text-sm h-10 w-20 2 group "
+              className="relative text-sm h-10 w-24 2 group "
             >
               <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
-              <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-red-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
-                Delete
-              </span>
+              <article className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-red-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+                <p className="px-2 font-bold ">Delete </p>
+                <span>
+                  <RiDeleteBin2Line className="font-bold text-xl" />
+                </span>
+              </article>
             </button>
 
             <Link to="..">
               <button className="relative text-sm h-10 w-20 2 group ">
                 <span className="absolute inset-0 rounded-lg border-r-2 border-b-2 border-black bg-black group-hover:bg-black"></span>
-                <span className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-purple-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
-                  Back
-                </span>
+                <article className="border border-black rounded-lg absolute inset-0  transition duration-300 ease-out transform translate-x-0 translate-y-0 bg-purple-custom group-hover:-translate-x-1 group-hover:-translate-y-1 flex items-center justify-center">
+                  <p className="px-2 font-bold ">Back </p>
+                  <span>
+                    <RiArrowGoBackFill className="font-bold text-xl" />
+                  </span>
+                </article>
               </button>
             </Link>
           </section>
